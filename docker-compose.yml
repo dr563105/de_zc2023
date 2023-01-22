@@ -1,0 +1,13 @@
+services:
+  nytaxi_postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: nyc-taxi-db
+    volumes:
+      - ./psql_vol:/var/lib/postgresql/data:rw
+      - ./input_data:/home/input_data
+      - ./warehouse_setup:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432

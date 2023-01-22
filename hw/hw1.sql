@@ -19,7 +19,7 @@ select
 from
     nyc_taxi.green_taxi
 group by green_taxi.lpep_pickup_datetime, trip_distance
-order by green_taxi.trip_distance DESC
+order by green_taxi.trip_distance DESC;
 
 --Question 5 - In 2019-01-01 how many trips had 2 and 3 passengers? 
 --Ans: 2:1282, 3:254.
@@ -33,7 +33,7 @@ where
     lpep_pickup_datetime >= timestamp '2019-01-01 00:00:00' and
     lpep_pickup_datetime < timestamp '2019-01-02 00:00:00' and
     (passenger_count = 2 or passenger_count = 3)
-group by passenger_count
+group by passenger_count;
 
 
 --Question 6 - For the passengers picked up in the Astoria Zone which was the drop up zone that had the largest tip?
