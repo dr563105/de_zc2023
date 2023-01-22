@@ -2,9 +2,9 @@ services:
   nytaxi_postgres:
     image: postgres:13-alpine
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: nyc-taxi-db
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB
     volumes:
       - ./psql_vol:/var/lib/postgresql/data:rw
       - ./input_data:/home/input_data
