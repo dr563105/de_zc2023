@@ -6,8 +6,8 @@ services:
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
       POSTGRES_DB: $POSTGRES_DB
     volumes:
-      - ./psql_vol:/var/lib/postgresql/data:rw
-      - ./input_data:/home/input_data
-      - ./warehouse_setup:/docker-entrypoint-initdb.d
+      - "./psql_vol:/var/lib/postgresql/data:rw"
+      - "./input_data:/home/input_data/"
+      - "./warehouse_setup:/docker-entrypoint-initdb.d/"
     ports:
       - 5432:5432
