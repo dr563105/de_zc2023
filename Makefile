@@ -1,6 +1,6 @@
 SHELL:=/bin/bash
 
-docker_install:
+install_docker:
 	source ./scripts/install_docker.sh 
 
 download_data:

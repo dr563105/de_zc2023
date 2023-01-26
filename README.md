@@ -9,7 +9,7 @@ Run
 sudo apt update && sudo apt install make git gzip -y
 cd ~ && git clone https://github.com/dr563105/de_zc2023.git
 cd de_zc2023
-make docker_install
+make install_docker
 source ~/.bashrc
 ```
 Logout and log in back to the instance. To test docker if it is working, run
