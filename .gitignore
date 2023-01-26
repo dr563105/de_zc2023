@@ -1,2 +1,10 @@
+# folders and files
 psql_vol/
 input_data/
+
+# My default authenticate json is present here
+secrets/  
+
+# Terraform
+.terraform/
+.terraform.lock.hcl
