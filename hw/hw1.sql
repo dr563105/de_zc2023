@@ -19,7 +19,8 @@ select
 from
     nyc_taxi.green_taxi
 group by green_taxi.lpep_pickup_datetime, trip_distance
-order by green_taxi.trip_distance DESC;
+order by green_taxi.trip_distance DESC
+limit 1;
 
 --Question 5 - In 2019-01-01 how many trips had 2 and 3 passengers? 
 --Ans: 2:1282, 3:254.
@@ -53,6 +54,7 @@ order by gt.tip_amount desc)
 
 select zone as "Drop off Zone", cte_tip."max_tip in $"
 from nyc_taxi.taxi_zones_lookup tzl, cte_tip
-where tzl.locationid = cte_tip.dolocationid;
+where tzl.locationid = cte_tip.dolocationid 
+limit 1;
 
 
