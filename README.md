@@ -4,9 +4,10 @@ All the course related things will be here.
 
 ## Clone, install docker and docker-compose
 
-Run
+The instructions were tested on Ubuntu 20.04 LTS. It is recommended to run these instruction in an Ubuntu based machine. 
+
 ```
-sudo apt update && sudo apt install make git gzip -y
+sudo apt update && sudo apt install make git gzip unzip -y
 cd ~ && git clone https://github.com/dr563105/de_zc2023.git
 cd de_zc2023
 make install_docker
@@ -54,6 +55,29 @@ Navigate to the [homework](./hw/) folder and try to execute queries inside the `
 ```
 make stop_db
 ```
+
+## ETL using Prefect
+
+Install Miniconda. We will conda as base and use `pipenv` to install other libraries.
+```
+make install_conda
+```
+Log out/in again into the machine.
+
+Install pipenv
+```
+cd ~/de_zc2023
+make setup_pipenv
+```
+Add port `4200` to ingress firewall rule.
+
+Setup and start prefect
+**In terminal 1**
+```
+export EC2_IP="" # replace double quotes with the EC2 IP address
+make setup_prefect && make start_prefect
+```
+
 
 
 
