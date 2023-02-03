@@ -18,7 +18,6 @@ stop_db:
 setup_pipenv:
 	pip install pipenv
 	pipenv install --dev
-	pipenv run pre-commit install
 
 setup_prefect:
 	source ./scripts/setup_prefect.sh
