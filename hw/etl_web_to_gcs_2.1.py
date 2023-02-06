@@ -35,10 +35,11 @@ def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
 
 
 @task()
-def write_gcs(path: Path) -> None:
+def write_gcs(path: Path, color: str, dataset_file: str) -> None:
     """Upload local parquet file to GCS"""
     gcs_block = GcsBucket.load("prefect-to-gcp-storage")
-    gcs_block.upload_from_path(from_path=path, to_path=path)
+    to_path = Path(f"data/{color}/{dataset_file}.parquet")
+    gcs_block.upload_from_path(from_path=path, to_path=to_path)
     return
 
 
@@ -54,8 +55,12 @@ def etl_web_to_gcs() -> None:
     df = fetch(dataset_url)
     df_clean = clean(df)
     path = write_local(df_clean, color, dataset_file)
-    write_gcs(path)
+    write_gcs(path, color, dataset_file)
+
 
 
 if __name__ == "__main__":
     etl_web_to_gcs()
+
+
+# rows: 447770, 01:16:37 AM, clean-b9fd7e03-0
